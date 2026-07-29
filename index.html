@@ -300,7 +300,13 @@
         /* === 애플 다크 글로시 섹션 박스 === */
         .panel {
             position: relative;
-            background: rgba(18, 18, 22, 0.72);
+            background:
+                repeating-linear-gradient(135deg,
+                    rgba(255,255,255,0.11) 0,
+                    rgba(255,255,255,0.11) 1px,
+                    rgba(255,255,255,0) 1px,
+                    rgba(255,255,255,0) 4px),
+                rgba(18, 18, 22, 0.78);
             border: 1px solid rgba(255,255,255,0.14);
             border-radius: 18px;
             padding: 36px 40px;
@@ -1121,7 +1127,7 @@
         <div class="modal">
             <div class="modal-icon">⚠️</div>
             <div class="modal-title">아직 준비중인 서비스 입니다</div>
-            <div class="modal-msg">이 사이트는 공식 해운대축제 사이트가 아님, 혼통 ㄴㄴ</div>
+            <div class="modal-msg">이거 왜 누름?</div>
             <div class="modal-actions">
                 <button type="button" id="notFoundClose">확인</button>
             </div>
