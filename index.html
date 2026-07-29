@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 부산 해운대 축제</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { -webkit-font-smoothing: antialiased; }
+        body {
+            font-family: "AppleGothic", "애플고딕", "Malgun Gothic", "맑은 고딕", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            color: #333;
+            line-height: 1.5;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center center / cover fixed no-repeat;
+            background-color: #1a1a1a;
+        }
+        a { color: #1450b8; text-decoration: none; }
+        a:hover { color: #0088cc; text-decoration: underline; }
+        img { border: 0; vertical-align: top; }
+        ul, ol { list-style: none; }
+
+        /* === 글로벌 내비 (애플 글래스 다크바) === */
+        .globalnav {
+            height: 38px;
+            background: linear-gradient(to bottom, #6e6e6e 0%, #4a4a4a 45%, #2f2f2f 55%, #1a1a1a 100%);
+            border-bottom: 1px solid #000;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+            position: relative;
+            z-index: 100;
+        }
+        .globalnav-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 22px;
+        }
+        .globalnav .logo {
+            font-family: "AppleGothic", "애플고딕", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #fff;
+            padding-right: 24px;
+            text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+        }
+        .globalnav .nav-list {
+            display: flex;
+            height: 100%;
+            flex: 1;
+        }
+        .globalnav .nav-list a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 400;
+            padding: 0 12px;
+            height: 100%;
+            text-decoration: none;
+            text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+            letter-spacing: 0.2px;
+            transition: background 0.1s;
+        }
+        .globalnav .nav-list a:hover {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+        }
+        .globalnav .nav-list a.active {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.18), rgba(255,255,255,0.05));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .globalnav .search {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 14px;
+            padding: 2px 8px;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .globalnav .search input {
+            border: 0;
+            outline: 0;
+            width: 110px;
+            font-family: inherit;
+            font-size: 11px;
+            padding: 3px 4px;
+            background: transparent;
+            color: #333;
+        }
+        .globalnav .search .ico {
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* === 히어로 (배경 위 오버레이) === */
+        .hero {
+            text-align: center;
+            padding: 80px 22px 56px;
+        }
+        .hero h1 {
+            font-family: "AppleGothic", "애플고딕", "Malgun Gothic", "맑은 고딕", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 44px;
+            font-weight: 200;
+            letter-spacing: -1px;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+        }
+        .hero h1 .hl { color: #9ec9ff; font-weight: 200; }
+        .hero .subhead {
+            font-size: 18px;
+            font-weight: 300;
+            color: #d0d0d0;
+            margin-bottom: 8px;
+            letter-spacing: 0;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+        }
+        .hero .links {
+            font-size: 13px;
+            margin: 16px 0 0;
+        }
+        .hero .links a { color: #6bb6ff; margin: 0 8px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+        .hero .links a:hover { color: #9ec9ff; }
+
+        /* === 콘텐츠 래퍼 === */
+        .content { max-width: 980px; margin: 0 auto; padding: 40px 22px 60px; }
+
+        /* === 섹션 헤드라인 === */
+        .section-head {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section-head h2 {
+            font-size: 26px;
+            font-weight: 300;
+            color: #f5f5f5;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        .section-head p { color: #b8b8b8; font-size: 14px; font-weight: 300; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+
+        /* === 애플 스타일 타일 그리드 === */
+        .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .tile {
+            position: relative;
+            background: rgba(18, 18, 22, 0.72);
+            border: 1px solid rgba(255,255,255,0.16);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 0 0 1px rgba(255,255,255,0.05),
+                0 4px 16px rgba(0,0,0,0.35);
+            transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        .tile:hover {
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.4),
+                0 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,0.35);
+        }
+        .tile-media {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            overflow: hidden;
+            background: #111;
+            z-index: 0;
+        }
+        .tile-media img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.95; }
+        /* 글로시 상단 광택 (유리 반사 강화) */
+        .tile-media::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 55%;
+            background: linear-gradient(to bottom,
+                rgba(255,255,255,0.4) 0%,
+                rgba(255,255,255,0.15) 35%,
+                rgba(255,255,255,0.02) 70%,
+                rgba(255,255,255,0) 100%);
+            pointer-events: none;
+            z-index: 2;
+        }
+        /* 좌상단 하이라이트 스팟 */
+        .tile-media::before {
+            content: '';
+            position: absolute;
+            top: -30%; left: -10%;
+            width: 60%; height: 80%;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.25), rgba(255,255,255,0) 70%);
+            transform: rotate(-15deg);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .tile-body {
+            position: relative;
+            z-index: 3;
+            padding: 130px 24px 24px;
+            text-align: center;
+            overflow: hidden;
+            /* 반투명 그라디언트: 위는 투명(사진 비침) → 아래는 어둡게(글씨 가독성) */
+            background: linear-gradient(to bottom,
+                rgba(10,10,14,0) 0%,
+                rgba(10,10,14,0.35) 35%,
+                rgba(10,10,14,0.78) 70%,
+                rgba(10,10,14,0.92) 100%);
+        }
+        /* 글씨 영역 글로시 광택 */
+        .tile-body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 60%;
+            background: linear-gradient(to bottom,
+                rgba(255,255,255,0.12) 0%,
+                rgba(255,255,255,0.04) 50%,
+                rgba(255,255,255,0) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* 좌상단 부드러운 하이라이트 */
+        .tile-body::after {
+            content: '';
+            position: absolute;
+            top: -20%; left: 0;
+            width: 50%; height: 70%;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.1), rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .tile-body > * { position: relative; z-index: 1; }
+        .tile-body h3 {
+            font-size: 18px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+        .tile-body .desc {
+            font-size: 13px;
+            font-weight: 300;
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .tile-body .detail {
+            display: none;
+            font-size: 12px;
+            color: #ccc;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin: 10px 0;
+            text-align: left;
+            line-height: 1.8;
+        }
+        .tile-body .detail b { color: #9ec9ff; font-weight: 500; }
+        .tile.expanded .detail { display: block; }
+        .tile-body .more {
+            display: inline-block;
+            font-size: 12px;
+            color: #6bb6ff;
+            cursor: pointer;
+        }
+        .tile-body .more:hover { color: #9ec9ff; text-decoration: underline; }
+        .tile-body .more::after { content: ' ›'; }
+
+        /* === D-3 배지 (애플 부드러운 글로시) === */
+        .dday {
+            position: absolute;
+            top: 14px; right: 14px;
+            padding: 4px 14px;
+            border-radius: 14px;
+            background: linear-gradient(to bottom, #f8786a 0%, #e23b2e 50%, #c01f15 100%);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            border: 1px solid #8a140c;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                0 2px 6px rgba(0,0,0,0.4);
+            text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+            z-index: 10;
+            font-family: "AppleGothic", "애플고딕", "Helvetica Neue", Arial, sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        /* === 애플 다크 글로시 섹션 박스 === */
+        .panel {
+            position: relative;
+            background: rgba(18, 18, 22, 0.72);
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 18px;
+            padding: 36px 40px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.22),
+                inset 0 0 0 1px rgba(255,255,255,0.04),
+                0 4px 16px rgba(0,0,0,0.35);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            overflow: hidden;
+        }
+        /* 패널 상단 글로시 광택 */
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 90px;
+            background: linear-gradient(to bottom,
+                rgba(255,255,255,0.22) 0%,
+                rgba(255,255,255,0.06) 60%,
+                rgba(255,255,255,0) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .panel > * { position: relative; z-index: 1; }
+        .panel-head {
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .panel-head h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+        .panel-head .eyebrow {
+            font-size: 11px;
+            color: #6bb6ff;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .panel p {
+            color: #c0c0c0;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+        .panel p b { color: #9ec9ff; font-weight: 500; }
+
+        /* === 애플 스타일 리스트 === */
+        .plist { margin: 16px 0; padding: 0; }
+        .plist li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            color: #c0c0c0;
+            font-size: 13px;
+            font-weight: 300;
+            display: flex;
+            gap: 14px;
+        }
+        .plist li:last-child { border-bottom: 0; }
+        .plist li b { color: #fff; font-weight: 500; min-width: 70px; }
+
+        /* === 애플 테이블 === */
+        .ptable { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .ptable th {
+            background: rgba(255,255,255,0.06);
+            color: #ddd;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+        .ptable td {
+            padding: 12px 14px;
+            font-size: 13px;
+            color: #c8c8c8;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-weight: 300;
+        }
+        .ptable tbody tr:hover { background: rgba(255,255,255,0.04); }
+        .ptable tbody tr:hover td { color: #9ec9ff; }
+
+        /* === 콜아웃 === */
+        .callout {
+            margin-top: 18px;
+            background: linear-gradient(to bottom, rgba(255,200,80,0.18), rgba(255,160,40,0.08));
+            border: 1px solid rgba(255,200,80,0.35);
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-size: 13px;
+            color: #ffd98a;
+            font-weight: 300;
+        }
+        .callout b { color: #ffc04a; font-weight: 600; }
+
+        /* === 애플 블루 버튼 === */
+        .btn-blue {
+            display: inline-block;
+            background: linear-gradient(to bottom, #5fa8e8 0%, #2a72c8 50%, #1f5cc8 100%);
+            color: #fff !important;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none !important;
+            padding: 6px 16px;
+            border-radius: 4px;
+            border: 1px solid #1448a8;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 1px 2px rgba(0,0,0,0.15);
+            text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .btn-blue:hover { background: linear-gradient(to bottom, #6fb4f0 0%, #347ed0 50%, #2565d0 100%); color: #fff !important; text-decoration: none !important; }
+
+        /* === 푸터 (애플 멀티컬럼, 다크 그레이) === */
+        .footer {
+            background: #2a2a2a;
+            border-top: 1px solid #111;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+            padding: 28px 22px 30px;
+            font-size: 11px;
+            color: #888;
+        }
+        .footer-inner { max-width: 980px; margin: 0 auto; }
+        .footer .ft-shop {
+            padding-bottom: 14px;
+            border-bottom: 1px solid #3a3a3a;
+            margin-bottom: 18px;
+            color: #aaa;
+        }
+        .footer .ft-shop a { color: #6bb6ff; }
+        .footer .ft-cols {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .footer .ft-col h4 {
+            color: #ddd;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .footer .ft-col ul li { margin: 4px 0; }
+        .footer .ft-col ul li a { color: #999; }
+        .footer .ft-col ul li a:hover { color: #6bb6ff; text-decoration: underline; }
+        .footer .ft-legal { border-top: 1px solid #3a3a3a; padding-top: 14px; color: #777; line-height: 1.7; }
+        .footer .ft-legal a { color: #6bb6ff; }
+        .footer .ft-legal .copy { color: #666; }
+        .footer .ft-legal .links a { margin: 0 6px; }
+
+        /* === 방명록 === */
+        .gb-form {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 18px;
+            margin: 16px 0 24px;
+        }
+        .gb-field { margin-bottom: 12px; }
+        .gb-field label {
+            display: block;
+            font-size: 11px;
+            color: #9ec9ff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .gb-field input,
+        .gb-field textarea {
+            width: 100%;
+            background: rgba(0,0,0,0.35);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 13px;
+            padding: 9px 12px;
+            outline: none;
+            resize: vertical;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .gb-field input::placeholder,
+        .gb-field textarea::placeholder { color: #777; }
+        .gb-field input:focus,
+        .gb-field textarea:focus {
+            border-color: #6bb6ff;
+            box-shadow: 0 0 0 3px rgba(107,182,255,0.15);
+        }
+        .gb-submit {
+            border: 1px solid #1448a8;
+            padding: 8px 24px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        .gb-list-head {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+        .gb-count {
+            color: #9ec9ff;
+            font-weight: 400;
+            font-size: 12px;
+        }
+        .gb-list { list-style: none; }
+        .gb-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .gb-list li:last-child { border-bottom: 0; }
+        .gb-item-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        .gb-item-name {
+            color: #9ec9ff;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .gb-item-time {
+            color: #777;
+            font-size: 11px;
+        }
+        .gb-item-msg {
+            color: #d0d0d0;
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .gb-empty { color: #777; font-size: 12px; text-align: center; padding: 24px 0; }
+
+        /* === 방명록 검증 말풍선 (애플 글로시 다크그레이 + 빗금) === */
+        .gb-bubble {
+            position: fixed;
+            z-index: 10001;
+            background:
+                repeating-linear-gradient(135deg,
+                    rgba(255,255,255,0.05) 0,
+                    rgba(255,255,255,0.05) 1px,
+                    rgba(255,255,255,0) 1px,
+                    rgba(255,255,255,0) 4px),
+                linear-gradient(to bottom,
+                    #4d4d56 0%, #4d4d56 48%,
+                    #303036 52%, #26262c 100%);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 8px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.35),
+                0 6px 18px rgba(0,0,0,0.5);
+            color: #fff;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 8px 14px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            white-space: nowrap;
+        }
+        .gb-bubble.show { opacity: 1; transform: translateY(0); }
+        /* 상단 글로시 반사 */
+        .gb-bubble::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 50%;
+            background: linear-gradient(to bottom,
+                rgba(255,255,255,0.2) 0%,
+                rgba(255,255,255,0.04) 60%,
+                rgba(255,255,255,0) 100%);
+            border-radius: 8px 8px 0 0;
+            pointer-events: none;
+        }
+        /* 아래쪽 화살표 (필드를 가리킴) */
+        .gb-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 18px;
+            width: 10px; height: 10px;
+            background: #26262c;
+            border-right: 1px solid rgba(255,255,255,0.18);
+            border-bottom: 1px solid rgba(255,255,255,0.18);
+            transform: rotate(45deg);
+        }
+        .gb-bubble-content {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .gb-bubble-ico { flex-shrink: 0; display: block; }
+
+        /* === 페이지 찾을 수 없음 모달 === */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .modal-overlay.show {
+            display: flex;
+            animation: overlayin 0.3s ease forwards;
+        }
+        .modal-overlay.show .modal {
+            animation: modalslide 0.36s cubic-bezier(0.2, 0.85, 0.25, 1);
+        }
+        /* 닫기: 블러 페이드아웃 */
+        .modal-overlay.closing {
+            animation: overlayout 0.3s ease forwards;
+        }
+        /* 닫기: 모달 박스 위로 슬라이드 */
+        .modal-overlay.closing .modal {
+            animation: modalup 0.3s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+        }
+        @keyframes overlayin {
+            from { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
+            to { opacity: 1; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+        }
+        @keyframes overlayout {
+            from { opacity: 1; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+            to { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
+        }
+        @keyframes modalslide {
+            from { opacity: 0; transform: translateY(-70px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes modalup {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-70px); }
+        }
+        .modal {
+            position: relative;
+            width: 360px;
+            max-width: calc(100vw - 32px);
+            background:
+                repeating-linear-gradient(135deg,
+                    rgba(255,255,255,0.045) 0,
+                    rgba(255,255,255,0.045) 1px,
+                    rgba(255,255,255,0) 1px,
+                    rgba(255,255,255,0) 4px),
+                linear-gradient(to bottom, #2e2e33 0%, #2e2e33 50%, #222226 50%, #1c1c20 100%);
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 14px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.2),
+                0 20px 50px rgba(0,0,0,0.7);
+            overflow: hidden;
+            text-align: center;
+            color: #fff;
+            font-family: inherit;
+        }
+        /* 상단 글로시 광택 (약하게) */
+        .modal::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 45%;
+            background: linear-gradient(to bottom,
+                rgba(255,255,255,0.1) 0%,
+                rgba(255,255,255,0.03) 60%,
+                rgba(255,255,255,0) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .modal > * { position: relative; z-index: 1; }
+        .modal-icon {
+            font-size: 40px;
+            margin: 26px 0 10px;
+            line-height: 1;
+        }
+        .modal-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+        }
+        .modal-msg {
+            font-size: 12px;
+            font-weight: 400;
+            color: #d0d0d0;
+            line-height: 1.7;
+            padding: 0 24px 18px;
+        }
+        .modal-actions {
+            border-top: 1px solid rgba(255,255,255,0.12);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(0,0,0,0.12));
+            padding: 16px 24px 22px;
+            text-align: center;
+        }
+        .modal-actions button {
+            display: inline-block;
+            width: auto;
+            min-width: 96px;
+            background: linear-gradient(to bottom,
+                #79c0f5 0%, #4a9ee8 48%, #2a72c8 52%, #1f5cc8 100%);
+            border: 1px solid #1448a8;
+            border-radius: 5px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 24px;
+            cursor: pointer;
+            text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.55),
+                inset 0 -1px 0 rgba(0,0,0,0.15),
+                0 1px 2px rgba(0,0,0,0.35);
+            transition: background 0.15s, box-shadow 0.1s;
+        }
+        .modal-actions button:hover {
+            background: linear-gradient(to bottom,
+                #8cd0ff 0%, #5aaef0 48%, #3580d0 52%, #2868d0 100%);
+        }
+        .modal-actions button:active {
+            background: linear-gradient(to bottom, #2a72c8 0%, #1f5cc8 100%);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.35);
+        }
+
+        @media (max-width: 900px) {
+            .tiles { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 30px; }
+            .hero .subhead { font-size: 14px; }
+            .content { padding: 28px 16px; }
+            .panel { padding: 24px 20px; }
+            .globalnav .search input { width: 70px; }
+            .globalnav .nav-list a { padding: 0 8px; }
+            .footer .ft-cols { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* === Notyf 토스트 커스텀 (애플 글로시 다크그레이 + 빗금) === */
+        .notyf { z-index: 10000; }
+        .notyf__toast {
+            position: relative;
+            overflow: hidden;
+            width: auto !important;
+            max-width: 320px !important;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.18);
+            background:
+                repeating-linear-gradient(135deg,
+                    rgba(255,255,255,0.05) 0,
+                    rgba(255,255,255,0.05) 1px,
+                    rgba(255,255,255,0) 1px,
+                    rgba(255,255,255,0) 4px),
+                linear-gradient(to bottom,
+                    #4d4d56 0%, #4d4d56 48%,
+                    #303036 52%, #26262c 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.35),
+                inset 0 0 0 1px rgba(255,255,255,0.05),
+                0 10px 28px rgba(0,0,0,0.55);
+        }
+        /* 상단 글로시 반사 */
+        .notyf__toast::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 45%;
+            background: linear-gradient(to bottom,
+                rgba(255,255,255,0.22) 0%,
+                rgba(255,255,255,0.05) 60%,
+                rgba(255,255,255,0) 100%);
+            pointer-events: none;
+            border-radius: 10px 10px 0 0;
+            z-index: 0;
+        }
+        /* 좌상단 하이라이트 */
+        .notyf__toast::after {
+            content: '';
+            position: absolute;
+            top: -30%; left: -5%;
+            width: 45%; height: 70%;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.16), rgba(255,255,255,0) 70%);
+            transform: rotate(-15deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* ripple은 absolute 유지 (흐름에 들어가지 않게), 배경 투명 */
+        .notyf__ripple { position: absolute !important; z-index: 0; background: transparent !important; }
+        .notyf__wrapper {
+            position: relative;
+            z-index: 1;
+            display: flex !important;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 16px;
+        }
+        .notyf__icon {
+            position: relative;
+            z-index: 1;
+            width: 22px !important;
+            height: 22px !important;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent !important;
+        }
+        .notyf__icon svg { width: 22px; height: 22px; display: block; }
+        .notyf__message {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 0 !important;
+            color: #fff;
+            font-weight: 500;
+            font-size: 13px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+        }
+        /* 성공: 체크 아이콘 #34C759 (원 배경 제거) */
+        .notyf__toast--success .notyf__icon {
+            background: transparent !important;
+        }
+        .notyf__toast--success .notyf__icon svg,
+        .notyf__toast--success .notyf__icon svg path {
+            fill: #34C759 !important;
+            color: #34C759 !important;
+        }
+        /* 에러: 빨강 아이콘 */
+        .notyf__toast--error .notyf__icon {
+            background: transparent !important;
+        }
+        .notyf__toast--error .notyf__icon svg,
+        .notyf__toast--error .notyf__icon svg path {
+            fill: #FF3B30 !important;
+            color: #FF3B30 !important;
+        }
+        .notyf__dismiss { position: relative; z-index: 1; }
+        .notyf__dismiss-btn { color: rgba(255,255,255,0.6); }
+    </style>
+</head>
+<body>
+
+    <!-- === 글로벌 내비 === -->
+    <nav class="globalnav">
+        <div class="globalnav-inner">
+            <div class="logo">해운대축제</div>
+            <div class="nav-list">
+                <a href="#" class="active" data-tab="home">홈</a>
+                <a href="#" data-tab="intro">축제소개</a>
+                <a href="#" data-tab="program">프로그램</a>
+                <a href="#" data-tab="show">공연안내</a>
+                <a href="#" data-tab="map">오시는길</a>
+                <a href="#" data-tab="community">커뮤니티</a>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="검색">
+                <span class="ico">⌕</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === 히어로 === -->
+    <section class="hero tab-panel" data-panel="home-hero">
+        <h1>여름의 열기.<br><span class="hl">바다의 낭만.</span></h1>
+        <div class="subhead">2026 부산 해운대 축제. 8월 1일부터 15일까지.</div>
+        <div class="links">
+            <a href="#" class="arr">프로그램 보기</a>
+            <a href="#" class="arr">오시는 길</a>
+        </div>
+    </section>
+
+    <!-- === 콘텐츠 === -->
+    <div class="content">
+
+        <!-- 홈 (타일 그리드) -->
+        <section class="tab-panel" data-panel="home">
+            <div class="section-head">
+                <h2>축제 하이라이트</h2>
+                <p>놓치면 후회할 필수 프로그램</p>
+            </div>
+            <div class="tiles">
+                <div class="tile">
+                    <div class="tile-media">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600" alt="불꽃놀이">
+                    </div>
+                    <div class="dday">D-3</div>
+                    <div class="tile-body">
+                        <h3>대형 불꽃놀이</h3>
+                        <div class="desc">매일 밤 9시 화려한 불꽃놀이가 해운대 바다 위를 수놓습니다.</div>
+                        <div class="detail"><b>시간</b> 매일 21:00 ~ 21:30<br><b>장소</b> 해운대 해수욕장 앞바다<br><b>관람</b> 전석 무료</div>
+                        <span class="more more-btn">더보기</span>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tile-media">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600" alt="공연">
+                    </div>
+                    <div class="dday">D-3</div>
+                    <div class="tile-body">
+                        <h3>라이브 공연</h3>
+                        <div class="desc">인디밴드부터 가요 커버까지 매일 밤 무대가 뜨겁습니다.</div>
+                        <div class="detail"><b>시간</b> 매일 20:00 ~ 21:00<br><b>장소</b> 해운대특별무대<br><b>출연</b> 인디밴드, 가요커버밴드 등</div>
+                        <span class="more more-btn">더보기</span>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tile-media">
+                        <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600" alt="푸드마켓">
+                    </div>
+                    <div class="dday">D-3</div>
+                    <div class="tile-body">
+                        <h3>먹거리 마켓</h3>
+                        <div class="desc">전 세계 다양한 먹거리를 한곳에서 만나보세요.</div>
+                        <div class="detail"><b>시간</b> 11:00 ~ 22:00<br><b>장소</b> 푸드존<br><b>판매</b> 20여개 부스</div>
+                        <span class="more more-btn">더보기</span>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tile-media">
+                        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600" alt="체험부스">
+                    </div>
+                    <div class="dday">D-3</div>
+                    <div class="tile-body">
+                        <h3>체험 부스</h3>
+                        <div class="desc">전통 공예부터 페이스페인팅까지 모든 연령대가 즐길 수 있는 부스.</div>
+                        <div class="detail"><b>시간</b> 10:00 ~ 22:00<br><b>장소</b> 체험존<br><b>참가비</b> 무료 ~ 2,000원</div>
+                        <span class="more more-btn">더보기</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 축제소개 -->
+        <section class="tab-panel" data-panel="intro" hidden>
+            <div class="panel">
+                <div class="panel-head">
+                    <div class="eyebrow">About</div>
+                    <h2>축제 소개</h2>
+                </div>
+                <p>2026 부산 해운대 축제는 해운대 해수욕장에서 열리는 부산 대표 여름축제입니다. 시민 누구나 즐길 수 있는 다채로운 프로그램과 함께 잊지 못할 여름밤을 선사합니다.</p>
+                <p>올해로 <b>10회째</b>를 맞이하는 부산 해운대 축제는 더 큰 규모, 더 다양한 볼거리로 여러분을 찾아갑니다.</p>
+                <ul class="plist">
+                    <li><b>주최</b> 부산시 / 해운대축제 조직위원회</li>
+                    <li><b>후원</b> 문화체육관광부</li>
+                    <li><b>관람료</b> 무료 (일부 체험부스 유료)</li>
+                </ul>
+                <a href="#" class="btn-blue">프로그램 보기 ›</a>
+            </div>
+        </section>
+
+        <!-- 프로그램 -->
+        <section class="tab-panel" data-panel="program" hidden>
+            <div class="panel">
+                <div class="panel-head">
+                    <div class="eyebrow">Schedule</div>
+                    <h2>프로그램 안내</h2>
+                </div>
+                <p>매일 다채로운 프로그램이 준비되어 있습니다.</p>
+                <table class="ptable">
+                    <thead><tr><th>시간</th><th>프로그램</th><th>장소</th></tr></thead>
+                    <tbody>
+                        <tr><td>19:00</td><td>개막 퍼레이드</td><td>해운대 모래사장</td></tr>
+                        <tr><td>20:00</td><td>라이브 공연</td><td>해운대특별무대</td></tr>
+                        <tr><td>21:00</td><td>대형 불꽃놀이</td><td>해운대 앞바다</td></tr>
+                        <tr><td>10:00~22:00</td><td>체험부스 운영</td><td>체험존</td></tr>
+                        <tr><td>11:00~22:00</td><td>먹거리 마켓</td><td>푸드존</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 공연안내 -->
+        <section class="tab-panel" data-panel="show" hidden>
+            <div class="panel">
+                <div class="panel-head">
+                    <div class="eyebrow">Live</div>
+                    <h2>공연 안내</h2>
+                </div>
+                <p>매일 저녁 8시 해운대특별무대에서 펼쳐지는 라이브 공연! 인디밴드부터 가요커버까지 다양한 장르의 공연이 준비되어 있습니다.</p>
+                <ul class="plist">
+                    <li><b>8/1 (금)</b> 개막공연 — 부산시립교향악단</li>
+                    <li><b>8/5 (화)</b> 인디밴드 나이트</li>
+                    <li><b>8/10 (일)</b> 가요커버 스페셜</li>
+                    <li><b>8/15 (목)</b> 폐막공연 — 대중가요 라이브</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 오시는길 -->
+        <section class="tab-panel" data-panel="map" hidden>
+            <div class="panel">
+                <div class="panel-head">
+                    <div class="eyebrow">Location</div>
+                    <h2>오시는 길</h2>
+                </div>
+                <p><b>장소:</b> 부산광역시 해운대구 해운대 해수욕장 일대</p>
+                <ul class="plist">
+                    <li><b>지하철</b> 2호선 해운대역 1번출구 도보 5분</li>
+                    <li><b>버스</b> 1001, 1002, 139번 해운대해수욕장 정류장 하차</li>
+                    <li><b>자가용</b> 해운대대로 방면 (주차장 500면 운영)</li>
+                </ul>
+                <div class="callout"><b>안내</b> · 주차장이 혼잡하오니 대중교통 이용을 권장합니다.</div>
+            </div>
+        </section>
+
+        <!-- 커뮤니티 -->
+        <section class="tab-panel" data-panel="community" hidden>
+            <div class="panel">
+                <div class="panel-head">
+                    <div class="eyebrow">Guestbook</div>
+                    <h2>방명록</h2>
+                </div>
+                <p>축제에 대한 여러분의 이야기를 남겨주세요.</p>
+
+                <!-- 작성 폼 -->
+                <form class="gb-form" id="gbForm" autocomplete="off" novalidate>
+                    <div class="gb-field">
+                        <label for="gbName">이름</label>
+                        <input type="text" id="gbName" maxlength="30" placeholder="닉네임 또는 이름" required>
+                    </div>
+                    <div class="gb-field">
+                        <label for="gbMessage">메세지</label>
+                        <textarea id="gbMessage" rows="3" maxlength="300" placeholder="메세지를 입력하세요" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-blue gb-submit">남기기</button>
+                </form>
+
+                <!-- 방명록 목록 -->
+                <div class="gb-list-head">방명록 <span id="gbCount" class="gb-count">0</span></div>
+                <ul class="gb-list" id="gbList">
+                    <li class="gb-empty">불러오는 중…</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- === 푸터 === -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="ft-shop">
+                <a href="#">해운대축제 스토어</a>에서 기념품을 만나보세요. <a href="#">쇼핑하기 ›</a>
+            </div>
+            <div class="ft-cols">
+                <div class="ft-col">
+                    <h4>축제 안내</h4>
+                    <ul>
+                        <li><a href="#">축제소개</a></li>
+                        <li><a href="#">프로그램</a></li>
+                        <li><a href="#">공연안내</a></li>
+                        <li><a href="#">오시는길</a></li>
+                    </ul>
+                </div>
+                <div class="ft-col">
+                    <h4>커뮤니티</h4>
+                    <ul>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">자유게시판</a></li>
+                        <li><a href="#">갤러리</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="ft-col">
+                    <h4>고객지원</h4>
+                    <ul>
+                        <li><a href="#">고객센터</a></li>
+                        <li><a href="#">문의하기</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                    </ul>
+                </div>
+                <div class="ft-col">
+                    <h4>관련 사이트</h4>
+                    <ul>
+                        <li><a href="#">부산시청</a></li>
+                        <li><a href="#">해운대구청</a></li>
+                        <li><a href="#">한국관광공사</a></li>
+                    </ul>
+                </div>
+                <div class="ft-col">
+                    <h4>문의</h4>
+                    <ul>
+                        <li>051-1972-1972</li>
+                        <li><a href="mailto:haeundae1010@gmail.com">haeundae1010@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft-legal">
+                <div class="links">
+                    <a href="#">이용약관</a><a href="#">개인정보취급방침</a><a href="#">청소년보호정책</a>
+                </div>
+                <div class="copy">© 2026 Busan Haeundae Festival. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 페이지 찾을 수 없음 모달 -->
+    <div class="modal-overlay" id="notFoundModal">
+        <div class="modal">
+            <div class="modal-icon">⚠️</div>
+            <div class="modal-title">아직 준비중인 서비스 입니다</div>
+            <div class="modal-msg">이 사이트는 공식 해운대축제 사이트가 아님, 혼통 ㄴㄴ</div>
+            <div class="modal-actions">
+                <button type="button" id="notFoundClose">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/locale/ko.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
+    <script>
+    (function() {
+        // === Supabase 클라이언트 ===
+        var SUPA_URL = 'https://xowuvpwfuqvqiastmioi.supabase.co';
+        var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhvd3V2cHdmdXF2cWlhc3RtaW9pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUxOTY0MjUsImV4cCI6MjEwMDc3MjQyNX0.mDgVWv0CoAhNnoYoROSBeGKHv6zYIN0EsieZSSLzSQI';
+        var supa = window.supabase ? window.supabase.createClient(SUPA_URL, SUPA_KEY) : null;
+
+        // === Notyf (토스트) ===
+        var notyf = new Notyf({
+            duration: 3000,
+            position: { x: 'center', y: 'top' },
+            dismissible: true
+        });
+
+        // === Day.js (상대 시간) ===
+        if (window.dayjs) {
+            dayjs.extend(window.dayjs_plugin_relativeTime);
+            dayjs.locale('ko');
+        }
+        function fmtTime(iso) {
+            if (!window.dayjs) {
+                var d = new Date(iso);
+                var p = function(n) { return (n < 10 ? '0' : '') + n; };
+                return p(d.getMonth()+1) + '.' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+            }
+            var d = dayjs(iso);
+            var now = dayjs();
+            // 24시간 이내면 상대시간, 그 이상은 날짜+시간
+            if (now.diff(d, 'hour') < 24) return d.fromNow();
+            return d.format('YYYY.MM.DD HH:mm');
+        }
+
+        // === 축포 ===
+        function fireConfetti() {
+            if (!window.confetti) return;
+            // 좌측에서 발사
+            confetti({ particleCount: 90, spread: 70, origin: { x: 0.2, y: 0.6 }, colors: ['#9ec9ff','#6bb6ff','#ffd98a','#ffffff','#f8786a'] });
+            // 우측에서 발사
+            setTimeout(function() {
+                confetti({ particleCount: 90, spread: 70, origin: { x: 0.8, y: 0.6 }, colors: ['#9ec9ff','#6bb6ff','#ffd98a','#ffffff','#f8786a'] });
+            }, 150);
+            // 중앙 추가 발사
+            setTimeout(function() {
+                confetti({ particleCount: 60, spread: 100, origin: { x: 0.5, y: 0.5 }, colors: ['#9ec9ff','#6bb6ff','#ffd98a','#ffffff','#f8786a'] });
+            }, 300);
+        }
+
+
+        // === 탭 전환 ===
+        var tabs = document.querySelectorAll('.nav-list a[data-tab]');
+        var panels = document.querySelectorAll('.tab-panel');
+        var hero = document.querySelector('[data-panel="home-hero"]');
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                tabs.forEach(function(t) { t.classList.remove('active'); });
+                tab.classList.add('active');
+                var target = tab.getAttribute('data-tab');
+                // 홈일 때만 히어로 표시
+                hero.hidden = (target !== 'home');
+                panels.forEach(function(p) {
+                    if (p === hero) return;
+                    if (p.getAttribute('data-panel') === target) {
+                        p.removeAttribute('hidden');
+                    } else {
+                        p.setAttribute('hidden', '');
+                    }
+                });
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // === 더보기 토글 ===
+        document.querySelectorAll('.more-btn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var tile = btn.closest('.tile');
+                tile.classList.toggle('expanded');
+                btn.textContent = tile.classList.contains('expanded') ? '닫기' : '더보기';
+            });
+        });
+
+        // === 미구현 링크/버튼 → 페이지 찾을 수 없음 모달 ===
+        var modal = document.getElementById('notFoundModal');
+        var closeBtn = document.getElementById('notFoundClose');
+        var closeTimer = null;
+        function showModal() {
+            clearTimeout(closeTimer);
+            modal.classList.remove('closing');
+            modal.classList.add('show');
+        }
+        function hideModal() {
+            if (!modal.classList.contains('show')) return;
+            modal.classList.add('closing');
+            clearTimeout(closeTimer);
+            closeTimer = setTimeout(function() {
+                modal.classList.remove('show');
+                modal.classList.remove('closing');
+            }, 300);
+        }
+        closeBtn.addEventListener('click', hideModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) hideModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') hideModal();
+        });
+
+        // 구현된(기능 있는) 셀렉터는 제외
+        var functionalSel = '.nav-list a[data-tab], .more-btn, .gb-submit, #notFoundClose';
+        document.querySelectorAll('a, button').forEach(function(el) {
+            // 모달 내부 요소는 제외
+            if (el.closest('#notFoundModal')) return;
+            // 방명록 폼 내부 요소는 제외
+            if (el.closest('#gbForm')) return;
+            // 기능 있는 요소 제외
+            if (el.matches(functionalSel)) return;
+            // 실제 href를 가진 외부 링크는 제외 (mailto:, http 등)
+            var href = el.getAttribute && el.getAttribute('href');
+            if (href && href !== '#' && href.charAt(0) !== '#') return;
+
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                showModal();
+            });
+        });
+
+        // === 방명록 ===
+        var gbForm = document.getElementById('gbForm');
+        var gbList = document.getElementById('gbList');
+        var gbCount = document.getElementById('gbCount');
+        var gbName = document.getElementById('gbName');
+        var gbMessage = document.getElementById('gbMessage');
+
+        function escapeHtml(s) {
+            return String(s).replace(/[&<>"']/g, function(c) {
+                return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+            });
+        }
+
+        async function loadGuestbook() {
+            if (!supa) {
+                gbList.innerHTML = '<li class="gb-empty">연결할 수 없습니다.</li>';
+                return;
+            }
+            gbList.innerHTML = '<li class="gb-empty">불러오는 중…</li>';
+            var { data, error } = await supa
+                .from('guestbook')
+                .select('name,message,created_at')
+                .order('created_at', { ascending: false })
+                .limit(100);
+            if (error) {
+                gbList.innerHTML = '<li class="gb-empty">불러오기 실패: ' + escapeHtml(error.message) + '</li>';
+                return;
+            }
+            gbCount.textContent = data.length;
+            if (!data.length) {
+                gbList.innerHTML = '<li class="gb-empty">아직 글이 없습니다. 첫 글을 남겨보세요!</li>';
+                return;
+            }
+            gbList.innerHTML = data.map(function(row) {
+                return '<li>' +
+                    '<div class="gb-item-head">' +
+                        '<span class="gb-item-name">' + escapeHtml(row.name) + '</span>' +
+                        '<span class="gb-item-time" data-time="' + escapeHtml(row.created_at) + '">' + escapeHtml(fmtTime(row.created_at)) + '</span>' +
+                    '</div>' +
+                    '<div class="gb-item-msg">' + escapeHtml(row.message) + '</div>' +
+                '</li>';
+            }).join('');
+        }
+
+        // 주기적으로 상대시간 갱신 (1분마다)
+        setInterval(function() {
+            document.querySelectorAll('.gb-item-time[data-time]').forEach(function(el) {
+                el.textContent = fmtTime(el.getAttribute('data-time'));
+            });
+        }, 60000);
+
+        // === 검증 말풍선 ===
+        var bubble = document.createElement('div');
+        bubble.className = 'gb-bubble';
+        document.body.appendChild(bubble);
+        var bubbleTimer = null;
+        function showBubble(input, msg) {
+            bubble.innerHTML =
+                '<span class="gb-bubble-content">' +
+                    '<svg class="gb-bubble-ico" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">' +
+                        '<circle cx="12" cy="12" r="11" fill="#FF3B30"/>' +
+                        '<rect x="11" y="6.5" width="2" height="8" rx="1" fill="#fff"/>' +
+                        '<circle cx="12" cy="17.6" r="1.2" fill="#fff"/>' +
+                    '</svg>' +
+                    '<span>' + escapeHtml(msg) + '</span>' +
+                '</span>';
+            bubble.classList.add('show');
+            var rect = input.getBoundingClientRect();
+            var bRect = bubble.getBoundingClientRect();
+            bubble.style.left = rect.left + 'px';
+            bubble.style.top = (rect.top - bRect.height - 10) + 'px';
+            clearTimeout(bubbleTimer);
+            bubbleTimer = setTimeout(function() {
+                bubble.classList.remove('show');
+            }, 2500);
+        }
+        function hideBubble() {
+            bubble.classList.remove('show');
+            clearTimeout(bubbleTimer);
+        }
+        [gbName, gbMessage].forEach(function(el) {
+            el.addEventListener('input', hideBubble);
+        });
+
+        gbForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            var name = gbName.value.trim();
+            var message = gbMessage.value.trim();
+            if (!name) {
+                showBubble(gbName, '이 입력란을 작성하세요.');
+                gbName.focus();
+                return;
+            }
+            if (!message) {
+                showBubble(gbMessage, '이 입력란을 작성하세요.');
+                gbMessage.focus();
+                return;
+            }
+            var btn = gbForm.querySelector('.gb-submit');
+            btn.disabled = true;
+            btn.textContent = '남기는 중…';
+            var { error } = await supa
+                .from('guestbook')
+                .insert({ name: name, message: message });
+            btn.disabled = false;
+            btn.textContent = '남기기';
+            if (error) {
+                notyf.error('등록 실패: ' + error.message);
+                return;
+            }
+            gbName.value = '';
+            gbMessage.value = '';
+            notyf.success('방명록이 등록되었습니다!');
+            fireConfetti();
+            loadGuestbook();
+        });
+
+        loadGuestbook();
+    })();
+    </script>
+</body>
+</html>
